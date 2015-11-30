@@ -4,6 +4,8 @@ const app = electron.app;
 const Menu = electron.Menu;
 const MenuItem = electron.MenuItem;
 
+const Tail = require('tail').Tail;
+
 require('electron-debug')({
 	showDevTools: true
 });
@@ -59,4 +61,11 @@ app.on('ready', () => {
 
 app.on('opened-file', (event) => {
 	console.log('RAISED EVENT opened-file', event);
+
+	const tail = new Tail(event.file, '\n', {}, true);
+
+	tail.on('line', data => {
+		console.log(data) ;
+		mainWindow.webContents.send('append-line', { data: data });
+	});
 });

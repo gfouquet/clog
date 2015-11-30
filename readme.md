@@ -26,4 +26,4 @@ Builds the app for OS X, Linux, and Windows, using [electron-packager](https://g
 
 ## License
 
-MIT © [](https://github.com/gfouquet)
+GPL 3 © [](https://github.com/gfouquet)
