@@ -3,7 +3,13 @@
 const React = require("react");
 const ReactDOM = require("react-dom");
 
+const LogLine = React.createClass({
+	render() {
+		return <div>{ this.props.text }</div>;
+	}
+});
+
 document.addEventListener("DOMContentLoaded", () => {
-	ReactDOM.render(<div>Hello Electron!</div>, document.querySelector('.main'));
+	ReactDOM.render(<LogLine text='Hello clog' />, document.querySelector('.main'));
 });
 
